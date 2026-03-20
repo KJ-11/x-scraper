@@ -1,0 +1,13 @@
+{
+  "name": "x-scraper",
+  "version": "1.0.0",
+  "description": "Scrape and analyze X/Twitter profiles, threads, and articles",
+  "type": "module",
+  "bin": {
+    "x-scraper": "./bin/cli.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
