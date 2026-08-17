@@ -2,14 +2,14 @@
 
 Scrape and analyze X/Twitter profiles, threads, and articles. Zero dependencies.
 
-Fetches tweets via X's internal GraphQL API using your browser cookies, then generates structured markdown reports — overview files, individual thread breakdowns, and full article extractions.
+Fetches tweets via X's internal GraphQL API using your browser cookies, then generates structured markdown reports: overview files, individual thread breakdowns, and full article extractions.
 
 ## Setup
 
-**Requirements:** Node.js 18+, macOS (for article fetching via Safari — everything else works cross-platform).
+**Requirements:** Node.js 18+, macOS (for article fetching via Safari, everything else works cross-platform).
 
 ```bash
-git clone https://github.com/yourusername/x-scraper.git
+git clone https://github.com/KJ-11/x-scraper.git
 cd x-scraper
 npm link  # optional: makes `x-scraper` available globally
 ```
@@ -109,13 +109,13 @@ x-scraper process username --output=./reports --min-likes=100
 | `--output=DIR` | `./output` | Output directory |
 | `--min-likes=N` | 50 | Minimum likes threshold |
 | `--min-views=N` | 10000 | Minimum views threshold |
-| `--threads-only` | — | Only include threads |
-| `--since=YYYY-MM-DD` | — | Filter tweets by date |
+| `--threads-only` | off | Only include threads |
+| `--since=YYYY-MM-DD` | none | Filter tweets by date |
 
 Generates:
-- `<handle>-top-posts.md` — overview with top articles, threads, and standalone posts
-- `<handle>-article-<id>.md` — individual article files
-- `<date>-<handle>-<slug>.md` — individual thread files
+- `<handle>-top-posts.md`, overview with top articles, threads, and standalone posts
+- `<handle>-article-<id>.md`, individual article files
+- `<date>-<handle>-<slug>.md`, individual thread files
 
 ### Batch processing
 
@@ -128,9 +128,9 @@ x-scraper batch handles.txt --skip-articles --output=./reports
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `--skip-articles` | — | Skip article fetching |
+| `--skip-articles` | off | Skip article fetching |
 | `--start=N` | 0 | Resume from handle index N |
-| `--output=DIR` | — | Output directory for markdown |
+| `--output=DIR` | none | Output directory for markdown |
 
 The handles file should have one handle per line (with or without `@`). Processes in batches of 3 with cooldowns between handles (60s) and batches (120s) to avoid rate limits.
 
